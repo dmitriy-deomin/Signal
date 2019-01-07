@@ -18,10 +18,10 @@ class Main : Activity() {
 
         button.setOnClickListener {
             //пошлём сигнал
-            signal(this, "slot1")
-                .putExtra("run", false)
+            Signal(this, "slot1")
+                .putExtra("run", true)
                 .putExtra("param", "zaebis")
-               // .send()
+
         }
         button2.setOnClickListener {
             //пошлём сигнал и выключим приёмник
@@ -32,3 +32,4 @@ class Main : Activity() {
         }
     }
 }
+

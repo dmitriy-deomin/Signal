@@ -51,14 +51,10 @@ class Slot(context: Context, name: String) {
 }
 
 //созданим signal тотже интент только имя поменяем
-class signal(context: Context, name: String) : Intent() {
-    val con = context
-
+class Signal(context: Context, name: String) : Intent() {
     init {
         this.action = name
-    }
-
-    fun send() {
-        con.sendBroadcast(this)
+        context.sendBroadcast(this)
     }
 }
+
