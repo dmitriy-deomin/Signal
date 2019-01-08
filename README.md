@@ -11,7 +11,7 @@ https://github.com/dmitriy-deomin/Signal/blob/master/app/src/main/java/dmitriy/d
 Used:Place The Slot.kt file into your project<br>
 <br>
 //create a receiver<br>
-Slot(this, "slot1").runEvent {<br>
+Slot(this, "slot1").onRun {<br>
      //it - intent<br>
      //val value = it.getStringExtra("key")<br>
   }<br>
