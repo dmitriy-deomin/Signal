@@ -18,17 +18,15 @@ class Main : Activity() {
 
         button.setOnClickListener {
             //пошлём сигнал
-            Signal(this, "slot1")
-                .putExtra("run", true)
-                .putExtra("param", "zaebis")
+            signal("slot1")
+                .putExtra("param", "zaebis").send(this)
 
         }
         button2.setOnClickListener {
-            //пошлём сигнал и выключим приёмник
-            val i = Intent("slot1")
-            i.putExtra("run", false)
-            i.putExtra("param", "zaebis")
-            this.sendBroadcast(i)
+            //пошлём сигнал и отключим
+            signal("slot1")
+                .putExtra("param", "zaebis")
+                .putExtra("run", false).send(this)
         }
     }
 }

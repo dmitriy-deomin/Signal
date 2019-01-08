@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.util.Log
 
 class Slot(context: Context, name: String) {
 
@@ -19,14 +20,13 @@ class Slot(context: Context, name: String) {
             override fun onReceive(c: Context, intent: Intent) {
                 //если получен наш сигнал
                 if (intent.action == name) {
-                    //если сигнал послан для однократного выполнения, удалим слот
-                    //иначе пусть дальше слушает
-                    if (intent.getBooleanExtra("run", true)) {
-                        run(intent)
-                    } else {
-                        run(intent)
+                    //выполняем халтуру на стороне
+                    run(intent)
+                    //и если сигнал послан для однократного выполнения, удалим слот
+                    if (!intent.getBooleanExtra("run",true)) {
                         delete_slot()
                     }
+                    //иначе пусть дальше слушает
                 }
             }
         }
@@ -50,11 +50,18 @@ class Slot(context: Context, name: String) {
     }
 }
 
+
+//добавил интенту метод(как он работат там хз)
+fun Intent.send(context: Context) {
+    context.sendBroadcast(this)
+}
+
 //созданим signal тотже интент только имя поменяем
-class Signal(context: Context, name: String) : Intent() {
+class signal(name: String) : Intent() {
     init {
         this.action = name
-        context.sendBroadcast(this)
     }
 }
+
+
 
