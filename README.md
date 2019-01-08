@@ -17,11 +17,12 @@ Slot(this, "slot1").onRun {<br>
   }<br>
   <br>
  //Send a signal to the receiver<br>
+  Signal(this, "slot1")<br>
+                .putExtra("run", false)<br>
+                .putExtra("key", "value")<br>  
  //putExtra("run", true) - After receiving the alarm will do the rest<br>
  //putExtra("run", false) - After receiving the signal will be destroyed<br>
  //By default true<br>
- Signal(this, "slot1")<br>
-                .putExtra("run", false)<br>
-                .putExtra("key", "value")<br>           
+         
   
   
