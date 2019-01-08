@@ -12,7 +12,7 @@ class Main : Activity() {
         setContentView(R.layout.main)
 
         //создаём приемник
-        Slot(this, "slot1").runEvent {
+        Slot(this, "slot1").onRun {
             textview.text = textview.text.toString() + "\nура работает  " + it.toString()
         }
 

@@ -22,9 +22,9 @@ class Slot(context: Context, name: String) {
                     //если сигнал послан для однократного выполнения, удалим слот
                     //иначе пусть дальше слушает
                     if (intent.getBooleanExtra("run", true)) {
-                        onRun(intent)
+                        run(intent)
                     } else {
-                        onRun(intent)
+                        run(intent)
                         delete_slot()
                     }
                 }
@@ -35,17 +35,17 @@ class Slot(context: Context, name: String) {
     }
 
     //выполняется на стороне
-    fun runEvent(block: (Intent) -> Unit) {
+    fun onRun(block: (Intent) -> Unit) {
         event = block
     }
 
     //срабатывает при приемке сигнала
-    fun onRun(param: Intent) {
+    private fun run(param: Intent) {
         event?.invoke(param)
     }
 
     //удалить приёмник
-    fun delete_slot() {
+    private fun delete_slot() {
         con.unregisterReceiver(broadcastReceiver)
     }
 }
