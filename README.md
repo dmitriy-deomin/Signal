@@ -4,9 +4,9 @@
 <hr />
 <p><span style="text-decoration: underline;"><strong>Cre</strong></span><span style="text-decoration: underline;"><strong>ate a receiver:</strong></span></p>
 <p><span style="text-decoration: underline;"><strong>//Will work until you tell me to die</strong></span></p>
-<p><span style="color: #0000ff;"><span style="color: #0000ff;"><span style="color: #0000ff;"><span style="color: #0000ff;"><strong>Slot(this, "slot1").onRun {it-&gt;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; val value = it.getStringExtra("key")<br />&nbsp;}<br /><br />or</strong></span></span></span></span></p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;"><span style="color: #0000ff;"><span style="color: #0000ff;"><strong>Slot(this, "slot1").onRun {it-&gt;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; val value = it.getStringExtra("<span>param</span>")<br />&nbsp;}<br /><br />or</strong></span></span></span></span></p>
 <p><strong>//Will work once</strong></p>
-<p><span style="color: #0000ff;"><span style="color: #0000ff;"><span style="color: #0000ff;"><span style="color: #0000ff;"><strong>Slot(this, "slot1",false).onRun {it-&gt;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; val value = it.getStringExtra("key")<br />&nbsp;}</strong></span></span></span></span></p>
+<p><span style="color: #0000ff;"><span style="color: #0000ff;"><span style="color: #0000ff;"><span style="color: #0000ff;"><strong>Slot(this, "slot1",false).onRun {it-&gt;<br />&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; val value = it.getStringExtra("<span>param</span>")<br />&nbsp;}</strong></span></span></span></span></p>
 <p>//it - intent</p>
 <p><br /><span style="text-decoration: underline;"><strong>Send a signal to the receiver:</strong></span></p>
 <p><strong><span style="color: #0000ff;">signal("slot1")<br />&nbsp; &nbsp; &nbsp; &nbsp;.putExtra("param", "zaebis")<br />&nbsp; &nbsp; &nbsp; &nbsp;.putExtra("run", false)<br />&nbsp; &nbsp; &nbsp; &nbsp;.send(this)</span></strong></p>
