@@ -26,18 +26,18 @@ class Main : Activity() {
         button.setOnClickListener {
             //пошлём сигнал
             signal("slot1")
-                .putExtra("param", "zaebis slot1").send(this)
+                .putExtra("param", "zaebis slot1").run(this)
 
             //пошлём сигнал
             signal("slot2")
-                .putExtra("param", "zaebis slot2").send(this)
+                .putExtra("param", "zaebis slot2").run(this)
 
         }
         button2.setOnClickListener {
             //пошлём сигнал и отключим
             signal("slot1")
                 .putExtra("param", "zaebis slot1")
-                .putExtra("run", false).send(this)
+                .putExtra("run", false).run(this)
         }
     }
 }

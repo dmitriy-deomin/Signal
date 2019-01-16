@@ -50,8 +50,8 @@ class Slot(context: Context, name: String,run:Boolean=true) {
 }
 
 
-//добавил интенту метод(как он работат там хз)
-fun Intent.send(context: Context) {
+//добавил интенту метод
+fun Intent.run(context: Context) {
     context.sendBroadcast(this)
 }
 
