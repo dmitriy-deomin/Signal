@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.support.v4.content.LocalBroadcastManager
 
 class Slot(context: Context, name: String,run:Boolean=true) {
 
@@ -30,7 +31,7 @@ class Slot(context: Context, name: String,run:Boolean=true) {
             }
         }
         //регистрируем приёмник
-        con.registerReceiver(broadcastReceiver, intentFilter)
+        LocalBroadcastManager.getInstance(con).registerReceiver(broadcastReceiver, intentFilter)
     }
 
     //выполняется на стороне
@@ -45,14 +46,14 @@ class Slot(context: Context, name: String,run:Boolean=true) {
 
     //удалить приёмник
     private fun Delete_slot() {
-        con.unregisterReceiver(broadcastReceiver)
+        LocalBroadcastManager.getInstance(con).unregisterReceiver(broadcastReceiver)
     }
 }
 
 
 //добавил интенту метод
 fun Intent.run(context: Context) {
-    context.sendBroadcast(this)
+    LocalBroadcastManager.getInstance(context).sendBroadcast(this)
 }
 
 //созданим signal тотже интент только имя поменяем
